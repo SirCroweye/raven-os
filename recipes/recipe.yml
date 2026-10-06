@@ -37,7 +37,8 @@ modules:
   - type: dnf
     repos:
       copr:
-        - lihaohong/yazi
+        enable:
+          - lihaohong/yazi
     install:
       packages:
         - quickshell
@@ -46,7 +47,7 @@ modules:
         - yazi
         - btop
         - htop
-        - steam
+        # - steam
     remove:
       packages:
         - alacritty
