@@ -36,9 +36,12 @@ modules:
 
   - type: dnf
     repos:
+      cleanup: true
       copr:
         enable:
           - lihaohong/yazi
+      nonfree: rpmfusion
+
     install:
       packages:
         - quickshell
@@ -47,7 +50,7 @@ modules:
         - yazi
         - btop
         - htop
-        # - steam
+        - steam
     remove:
       packages:
         - alacritty
