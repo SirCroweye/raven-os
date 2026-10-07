@@ -3,7 +3,7 @@
 # image will be published to ghcr.io/<user>/<name>
 name: raven-os
 # description will be included in the image's metadata
-description: Based on Wayblue niri-nvidia-open image, added nix, quickshell.
+description: Based on Wayblue niri-nvidia-open image, added nix, dank-material-shell.
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/wayblueorg/niri-nvidia-open
@@ -17,25 +17,12 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
-  # nix package manager
   - type: script
     snippets:
     - "dnf5 install -y nix"
     - "mkdir -p /nix /var/nix"
     - "dnf5 clean all"
 
-  # - type: files
-  #   files:
-  #     - source: systemd/nix.mount
-  #       destination: /etc/systemd/system/nix.mount
-
-  - type: systemd
-    system:
-      enabled:
-        - nix.mount
-        - nix-daemon.service
-
-  # custom packages
   - type: dnf
     repos:
       cleanup: true
@@ -43,6 +30,7 @@ modules:
         enable:
           - lihaohong/yazi
           - avengemedia/dms
+
       # Error: Enabling rpmfusion repos
       #        Enabling 'fedora-cisco-openh264' repo for RPMFusion compatibility
       #        No matching repository to modify: fedora-cisco-openh264
@@ -63,5 +51,18 @@ modules:
         - alacritty
         - rofi-wayland
         - wofi
+
+  - type: script
+    snippets:
+    - "dnf setup"
+
+  - type: systemd
+    system:
+      enabled:
+        - nix.mount
+        - nix-daemon.service
+    user:
+      enabled:
+        - dms
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
