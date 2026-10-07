@@ -38,12 +38,17 @@ modules:
   # custom packages
   - type: dnf
     repos:
+      cleanup: true
       copr:
         enable:
           - lihaohong/yazi
-      nonfree: rpmfusion
+      # Error: Enabling rpmfusion repos
+      #        Enabling 'fedora-cisco-openh264' repo for RPMFusion compatibility
+      #        No matching repository to modify: fedora-cisco-openh264
+      # nonfree: rpmfusion
 
     install:
+      skip-unavailable: true
       packages:
         # - quickshell -> dependency of dms
         - kitty
@@ -51,7 +56,7 @@ modules:
         - yazi
         - btop
         - htop
-        - steam
+        # - steam # needs rpmfusion
     remove:
       packages:
         - alacritty
