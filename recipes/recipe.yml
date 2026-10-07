@@ -17,6 +17,7 @@ modules:
   #     - source: system
   #       destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
+  # nix package manager
   - type: script
     snippets:
     - "dnf5 install -y nix"
@@ -34,6 +35,7 @@ modules:
         - nix.mount
         - nix-daemon.service
 
+  # custom packages
   - type: dnf
     repos:
       cleanup: true
@@ -44,7 +46,7 @@ modules:
 
     install:
       packages:
-        - quickshell
+        # - quickshell -> dependency of dms
         - kitty
         - fastfetch
         - yazi
@@ -56,5 +58,10 @@ modules:
         - alacritty
         - rofi-wayland
         - wofi
+
+  # dank material shell
+  - type: script
+    snippets:
+    - "curl -fsSL https://install.danklinux.com | sh"
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
