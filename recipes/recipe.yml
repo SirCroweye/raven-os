@@ -12,10 +12,10 @@ image-version: latest
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-  # - type: files
-  #   files:
-  #     - source: system
-  #       destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+  - type: files
+    files:
+      - source: system
+        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
   # nix package manager
   - type: script
@@ -24,10 +24,10 @@ modules:
     - "mkdir -p /nix /var/nix"
     - "dnf5 clean all"
 
-  - type: files
-    files:
-      - source: systemd/nix.mount
-        destination: /etc/systemd/system/nix.mount
+  # - type: files
+  #   files:
+  #     - source: systemd/nix.mount
+  #       destination: /etc/systemd/system/nix.mount
 
   - type: systemd
     system:
