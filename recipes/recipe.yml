@@ -54,7 +54,7 @@ modules:
 
   - type: script
     snippets:
-    - "dms setup"
+    - "runuser -u raven -- dms setup headless --compositor niri --skip-existing"
 
   - type: systemd
     system:
