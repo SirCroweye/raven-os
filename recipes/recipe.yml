@@ -54,7 +54,7 @@ modules:
 
   - type: script
     snippets:
-    - "dnf setup"
+    - "dms setup"
 
   - type: systemd
     system:
