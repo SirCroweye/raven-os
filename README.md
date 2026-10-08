@@ -12,23 +12,42 @@ After setup, it is recommended you update this README to describe your custom im
 To rebase an existing atomic Fedora installation to the latest build:
 
 - First rebase to the unsigned image, to get the proper signing keys and policies installed:
-  ```
+  ```bash
   rpm-ostree rebase ostree-unverified-registry:ghcr.io/sircroweye/raven-os:latest
   ```
 - Reboot to complete the rebase:
-  ```
+  ```bash
   systemctl reboot
   ```
 - Then rebase to the signed image, like so:
-  ```
+  ```bash
   rpm-ostree rebase ostree-image-signed:docker://ghcr.io/sircroweye/raven-os:latest
   ```
 - Reboot again to complete the installation
-  ```
+  ```bash
   systemctl reboot
   ```
 
 The `latest` tag will automatically point to the latest build. That build will still always use the Fedora version specified in `recipe.yml`, so you won't get accidentally updated to the next major version.
+
+## Post-install
+
+#### Nvidia
+If you are using an nvidia image, run this after installation:
+
+```bash
+rpm-ostree kargs \
+    --append-if-missing=rd.driver.blacklist=nouveau \
+    --append-if-missing=modprobe.blacklist=nouveau \
+    --append-if-missing=nvidia-drm.modeset=1 \
+    --append-if-missing=nvidia-drm.fbdev=1
+```
+You may also need this (solves flickering and LUKS issues on some nvidia hardware):
+
+```bash
+rpm-ostree kargs \
+    --append-if-missing=initcall_blacklist=simpledrm_platform_driver_init
+```
 
 ## ISO
 
