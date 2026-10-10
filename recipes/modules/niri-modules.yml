@@ -26,5 +26,5 @@ modules:
         - dms
 
   - type: script
-    snipptets:
+    snippets:
       - "runuser -- dms setup headless --compositor niri --terminal kitty --force"
