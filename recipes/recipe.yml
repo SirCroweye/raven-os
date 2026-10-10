@@ -7,7 +7,7 @@ description: Based on Wayblue niri-nvidia-open image, added nix, dank-material-s
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: quay.io/fedora-ostree-desktops/base-atomic
-image-version: latest
+image-version: 44
 
 modules:
   - type: files
