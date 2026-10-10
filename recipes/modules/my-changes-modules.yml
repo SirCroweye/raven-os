@@ -1,0 +1,55 @@
+modules:
+  - type: files
+    files:
+      - source: system
+        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+
+  - type: script
+    snippets:
+    - "dnf5 install -y nix"
+    - "mkdir -p /nix /var/nix"
+    - "dnf5 clean all"
+
+  - type: dnf
+    repos:
+      cleanup: true
+      copr:
+        enable:
+          - lihaohong/yazi
+          - avengemedia/dms
+
+      # Error: Enabling rpmfusion repos
+      #        Enabling 'fedora-cisco-openh264' repo for RPMFusion compatibility
+      #        No matching repository to modify: fedora-cisco-openh264
+      # nonfree: rpmfusion
+
+    install:
+      skip-unavailable: true
+      packages:
+        - dms
+        - kitty
+        - fastfetch
+        - yazi
+        - btop
+        - htop
+        # - steam # needs rpmfusion
+    remove:
+      packages:
+        - alacritty
+        - rofi-wayland
+        - wofi
+
+  # - type: script
+  #   snippets:
+  #   - "runuser -- dms setup headless --compositor niri --terminal kitty --skip-existing"
+
+  - type: systemd
+    system:
+      enabled:
+        - nix.mount
+        - nix-daemon.service
+    user:
+      enabled:
+        - dms
+
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully

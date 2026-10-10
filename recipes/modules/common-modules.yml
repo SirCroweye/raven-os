@@ -34,15 +34,23 @@ modules:
         - installandroidudev.sh
         - ensureautoupdates.sh
         - addimageinfo.sh
+        -
+    # Add Repos
+    - type: script
+      scripts:
+        - installrpmfusion.sh
 
     - type: dnf
+      repos:
+      cleanup: true
+      copr:
+        enable:
+          - lihaohong/yazi
+
       install:
         install-weak-deps: false
+        allowerasing: true
         packages:
-        # launcher
-          - rofi-wayland
-          - wofi
-
         # environment
           - fzf
           - tuned-ppd
@@ -50,7 +58,7 @@ modules:
           - headsetcontrol
           - mediainfo
           - polkit
-          - xfce-polkit 
+          - xfce-polkit
           - fprintd-pam
           - xdg-user-dirs
           - dbus-tools
@@ -72,7 +80,8 @@ modules:
           - p7zip
           - distrobox
           - steam-devices
-          
+          - vim-default-editor
+
         # sound
           - wireplumber
           - pipewire
@@ -90,9 +99,18 @@ modules:
           - blueman
           - firewall-config
 
+        # yazi file manager
+          - yazi
+          - 7zip-standalone
+          - fzf
+          - git
+          - resvg
+          - ripgrep
+          - zoxide
+
         # file manager
           - thunar
-          - thunar-archive-plugin 
+          - thunar-archive-plugin
           - thunar-volman
           - xarchiver
           - imv
@@ -105,6 +123,11 @@ modules:
           - gvfs-archive
           - android-tools
 
+        # Terminal
+          - kitty
+          - fastfetch
+          - btop
+          - htop
         # screenshot
           - slurp
           - grim
@@ -118,11 +141,14 @@ modules:
         # notifications
           - dunst
 
+        # Steam
+          - steam
+
         # theme and GUI
           - fontawesome-fonts-all
           - gnome-icon-theme
           - paper-icon-theme
-          - breeze-icon-theme 
+          - breeze-icon-theme
           - papirus-icon-theme
       replace:
         - from-repo: fedora
@@ -131,18 +157,6 @@ modules:
               new: ocl-icd
 
     - from-file: common/proprietary-modules.yml
-
-    - type: script
-      scripts:
-        - installrpmfusion.sh
-        - removeunusedrepos.sh
-
-    - type: files
-      files:
-        - source: system/usr
-          destination: /usr
-        - source: system/etc
-          destination: /etc
 
     - type: gschema-overrides
       include:
