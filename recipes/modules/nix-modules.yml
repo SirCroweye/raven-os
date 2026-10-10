@@ -6,6 +6,10 @@ modules:
       - "dnf5 clean all"
 
     # nix.mount wird mit allem anderen nach etc/systemd/system/ kopiert
+    - type: files
+      files:
+        - source: system/etc/systemd/system/nix.mount
+          destination: /etc/systemd/system/nix.mount
 
     - type: systemd
       system:

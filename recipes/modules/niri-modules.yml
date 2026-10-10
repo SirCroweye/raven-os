@@ -7,6 +7,11 @@ modules:
         - xdg-desktop-portal-wlr
         - xdg-desktop-portal-gtk
 
+  - type: files
+    files:
+      - source: system/usr
+        destination: /usr
+
   - type: dnf
     repos:
       cleanup: true
