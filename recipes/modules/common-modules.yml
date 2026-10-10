@@ -152,7 +152,7 @@ modules:
           - old: OpenCL-ICD-Loader
             new: ocl-icd
 
-  - from-file: common/proprietary-modules.yml
+  - from-file: modules/proprietary-modules.yml
 
   - type: gschema-overrides
     include:
