@@ -167,6 +167,3 @@ modules:
     user:
       enabled:
         - wayblue-update-verification.service
-
-  - type: wayblue-signing
-    source: local
