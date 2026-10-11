@@ -34,7 +34,6 @@ modules:
       - installandroidudev.sh
       - ensureautoupdates.sh
       - addimageinfo.sh
-      - installrpmfusion.sh
 
   - type: dnf
     repos:
@@ -42,6 +41,7 @@ modules:
       copr:
         enable:
           - lihaohong/yazi
+      nonfree: rpmfusion
 
     install:
       install-weak-deps: false
@@ -153,6 +153,11 @@ modules:
             new: ocl-icd
 
   - from-file: modules/proprietary-modules.yml
+
+  - type: script
+    scripts:
+      - installrpmfusion.sh
+      - removeunusedrepos.sh
 
   - type: gschema-overrides
     include:
