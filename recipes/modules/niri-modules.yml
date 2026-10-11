@@ -30,6 +30,7 @@ modules:
       enabled:
         - dms
 
-  - type: script
-    snippets:
-      - "runuser -- dms setup headless --compositor niri --terminal kitty --force"
+  - type: files
+    files:
+      - source: system/etc/skel
+        destination: /etc/skel
