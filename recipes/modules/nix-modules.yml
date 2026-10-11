@@ -8,7 +8,7 @@ modules:
   # nix.mount wird mit allem anderen nach etc/systemd/system/ kopiert
   - type: files
     files:
-      - source: system/etc/systemd/system/nix.mount
+      - source: systemd/nix.mount
         destination: /etc/systemd/system/nix.mount
 
   - type: systemd
