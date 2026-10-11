@@ -41,7 +41,6 @@ modules:
       copr:
         enable:
           - lihaohong/yazi
-      nonfree: rpmfusion
 
     install:
       install-weak-deps: false
@@ -136,9 +135,6 @@ modules:
 
       # notifications
         - dunst
-
-      # Steam
-        - steam
 
       # theme and GUI
         - fontawesome-fonts-all
