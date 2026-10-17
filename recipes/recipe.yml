@@ -15,11 +15,11 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
-  - from-file: modules/sddm-modules.yml
   - from-file: modules/nix-modules.yml
   - from-file: modules/common-modules.yml
   - from-file: modules/nvidia-open-modules.yml
   - from-file: modules/niri-modules.yml
+  - from-file: modules/dms-modules.yml
   - from-file: modules/xdg-desktop-portal-modules.yml
   - from-file: modules/final-modules.yml
 

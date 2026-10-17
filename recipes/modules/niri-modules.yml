@@ -11,29 +11,5 @@ modules:
     files:
       - source: system/usr
         destination: /usr
-
-  - type: dnf
-    repos:
-      cleanup: true
-      copr:
-        enable:
-          - avengemedia/dms
-          - avengemedia/danklinux
-    install:
-      packages:
-        - dms
-        - dms-greeter
-        - dgop
-        - dsearch
-        - dcal
-        - ghostty
-
-  - type: systemd
-    user:
-      enabled:
-        - dms
-
-  - type: files
-    files:
-      - source: system/etc/skel
-        destination: /etc/skel
+      - source: system/etc/skel/.config/niri/config.kdl
+        destination: /etc/skel/.config/niri/config.kdl
