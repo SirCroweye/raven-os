@@ -23,7 +23,10 @@ modules:
       packages:
         - dms
         - dms-greeter
+        - dgop
         - dsearch
+        - dcal
+        - ghostty
 
   - type: systemd
     user:

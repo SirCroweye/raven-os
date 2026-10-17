@@ -97,7 +97,7 @@ modules:
       # yazi file manager
         - yazi
         - 7zip-standalone
-        - fzf
+        # - fzf # schon vorhanden
         - git
         - resvg
         - ripgrep
@@ -109,7 +109,7 @@ modules:
         - thunar-volman
         - xarchiver
         - imv
-        - p7zip
+        # - p7zip # schon vorhanden
         - gvfs-mtp
         - gvfs-gphoto2
         - gvfs-smb
@@ -119,10 +119,11 @@ modules:
         - android-tools
 
       # Terminal
-        - kitty
+        # - kitty
         - fastfetch
-        - btop
-        - htop
+        # - btop
+        # - htop
+
       # screenshot
         - slurp
         - grim
