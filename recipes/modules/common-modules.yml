@@ -119,7 +119,7 @@ modules:
         - android-tools
 
       # Terminal
-        # - kitty
+        - kitty
         - fastfetch
         # - btop
         # - htop
