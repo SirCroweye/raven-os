@@ -7,9 +7,5 @@ modules:
         - xdg-desktop-portal-wlr
         - xdg-desktop-portal-gtk
 
-  - type: files
-    files:
-      - source: system/usr
-        destination: /usr
       - source: system/etc/skel/.config/niri/config.kdl
         destination: /etc/skel/.config/niri/config.kdl
