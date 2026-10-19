@@ -15,6 +15,7 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
+  - from-file: modules/sddm-modules.yml
   - from-file: modules/nix-modules.yml
   - from-file: modules/common-modules.yml
   - from-file: modules/nvidia-open-modules.yml
