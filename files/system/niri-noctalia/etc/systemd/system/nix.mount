@@ -1,0 +1,14 @@
+[Unit]
+Description=Mount persistent Nix store
+Before=local-fs.target
+After=var.mount
+ConditionPathIsMountPoint=!/nix
+
+[Mount]
+What=/var/nix
+Where=/nix
+Type=none
+Options=bind
+
+[Install]
+WantedBy=local-fs.target

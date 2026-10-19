@@ -1,5 +1,11 @@
 modules:
   - type: dnf
+    repos:
+      cleanup: true
+      scripts:
+        snippets:
+          "dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release"
     install:
       packages:
         - noctalia
+        - noctalia-greeter

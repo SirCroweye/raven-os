@@ -6,6 +6,3 @@ modules:
         - niri
         - xdg-desktop-portal-wlr
         - xdg-desktop-portal-gtk
-
-      - source: system/etc/skel/.config/niri/config.kdl
-        destination: /etc/skel/.config/niri/config.kdl
