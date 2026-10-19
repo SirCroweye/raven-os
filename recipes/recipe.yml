@@ -19,7 +19,7 @@ modules:
   - from-file: modules/common-modules.yml
   - from-file: modules/nvidia-open-modules.yml
   - from-file: modules/niri-modules.yml
-  - from-file: modules/dms-modules.yml
+  - from-file: modules/noctalia-modules.yml
   - from-file: modules/xdg-desktop-portal-modules.yml
   - from-file: modules/final-modules.yml
 
