@@ -1,7 +1,7 @@
 modules:
   - type: containerfile
     snippets:
-      - RUN dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+      - RUN dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
   - type: dnf
     install:
