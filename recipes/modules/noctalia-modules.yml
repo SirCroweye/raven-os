@@ -1,10 +1,9 @@
 modules:
+  - type: containerfile
+    snippets:
+      - RUN dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+
   - type: dnf
-    repos:
-      cleanup: true
-      scripts:
-        snippets:
-          "dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release"
     install:
       packages:
         - noctalia
