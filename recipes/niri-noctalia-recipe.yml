@@ -12,7 +12,7 @@ image-version: 44
 modules:
   - type: files
     files:
-      - source: system/niri-noctalia
+      - source: system/niri-noctalia/*
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
   - from-file: modules/niri-modules.yml
